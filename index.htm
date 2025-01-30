@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <title>Vikas Verma - Resume</title>
@@ -11,18 +12,21 @@
       padding: 0;
       box-sizing: border-box;
     }
+
     body {
       font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       background: #f5f7fa;
       color: #333;
       line-height: 1.6;
     }
+
     a {
-      color: #0d6efd; 
+      color: #0d6efd;
       text-decoration: none;
     }
+
     a:hover {
-      text-decoration: underline;
+      text-decoration: none;
     }
 
     /* Container */
@@ -44,22 +48,27 @@
       border-radius: 8px;
       box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
     }
+
     .hero-text {
       flex: 1;
     }
+
     .hero-text h1 {
       font-size: 2rem;
       margin-bottom: 10px;
       font-weight: 700;
     }
+
     .contact-info {
       margin: 10px 0;
     }
+
     .contact-info p {
       margin-bottom: 6px;
       display: flex;
       align-items: center;
     }
+
     .contact-info p svg {
       margin-right: 8px;
       height: 16px;
@@ -70,16 +79,20 @@
     /* Navigation (optional - for quick section jumps) */
     nav {
       display: flex;
+      flex-wrap: wrap;
       gap: 15px;
       margin-top: 10px;
     }
+
     nav a {
       font-weight: 500;
       color: #333;
       border-bottom: 2px solid transparent;
       padding-bottom: 2px;
     }
+
     nav a:hover {
+      text-decoration: none;
       border-color: #0d6efd;
     }
 
@@ -87,6 +100,7 @@
     section {
       margin-bottom: 30px;
     }
+
     section h2 {
       font-size: 1.4rem;
       margin-bottom: 10px;
@@ -99,19 +113,22 @@
     .card {
       background: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       padding: 20px;
       margin-bottom: 15px;
     }
+
     .card h3 {
       margin-bottom: 5px;
       font-size: 1.1rem;
       color: #333;
     }
+
     .card ul {
       list-style: disc;
       margin-left: 20px;
     }
+
     .card ul li {
       margin-bottom: 6px;
     }
@@ -122,17 +139,21 @@
       grid-template-columns: 1fr;
       gap: 20px;
     }
+
     @media (min-width: 768px) {
       .summary-skills {
         grid-template-columns: 1fr 1fr;
       }
     }
-    .summary-box, .skills-box {
+
+    .summary-box,
+    .skills-box {
       background: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       padding: 20px;
     }
+
     .summary-box p {
       margin-bottom: 8px;
     }
@@ -142,10 +163,11 @@
       list-style: none;
       margin-left: 0;
     }
+
     .education-list li {
       background: #fff;
       border-radius: 8px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
       padding: 15px;
       margin-bottom: 10px;
     }
@@ -158,7 +180,33 @@
       color: #666;
     }
   </style>
+  <script>
+    function humanizeSince(startMonth, startYear) {
+      const startDate = new Date(startYear, startMonth - 1, 1);
+      const now = new Date();
+      let totalMonths =
+        (now.getFullYear() - startDate.getFullYear()) * 12 +
+        (now.getMonth() - startDate.getMonth());
+      if (now.getDate() >= startDate.getDate()) {
+        totalMonths++;
+      }
+      if (totalMonths < 0) {
+        totalMonths = 0;
+      }
+      const years = Math.floor(totalMonths / 12);
+      const months = totalMonths % 12;
+      const parts = [];
+      if (years > 0) {
+        parts.push(years + (years === 1 ? ' year' : ' years'));
+      }
+      if (months > 0) {
+        parts.push(months + (months === 1 ? ' month' : ' months'));
+      }
+      return parts.length > 0 ? parts.join(' and ') : '0 months';
+    }
+  </script>
 </head>
+
 <body>
 
   <div class="container">
@@ -169,27 +217,46 @@
         <div class="contact-info">
           <p>
             <!-- Phone Icon -->
-            <svg viewBox="0 0 512 512"><path d="M391.5 351.2l-77.3-38.7c-4.3-2.2-9.3-2.6-13.9-1.4l-38.4 10.6c-24-12.8-43.6-32.4-56.4-56.4l10.6-38.4c1.3-4.6.8-9.6-1.4-13.9l-38.7-77.3c-3.6-7.3-11.7-11.2-19.5-9.7l-47.4 9.2c-8.5 1.7-15.1 8.3-16.8 16.8C75.5 218.2 256.6 399.4 448.3 447.4c8.5 1.7 15.1-8.3 16.8-16.8l9.2-47.4c1.5-7.8-2.4-15.9-9.7-19.5z"></path></svg>
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M391.5 351.2l-77.3-38.7c-4.3-2.2-9.3-2.6-13.9-1.4l-38.4 10.6c-24-12.8-43.6-32.4-56.4-56.4l10.6-38.4c1.3-4.6.8-9.6-1.4-13.9l-38.7-77.3c-3.6-7.3-11.7-11.2-19.5-9.7l-47.4 9.2c-8.5 1.7-15.1 8.3-16.8 16.8C75.5 218.2 256.6 399.4 448.3 447.4c8.5 1.7 15.1-8.3 16.8-16.8l9.2-47.4c1.5-7.8-2.4-15.9-9.7-19.5z">
+              </path>
+            </svg>
             (669) 237-7387
           </p>
           <p>
             <!-- Email Icon -->
-            <svg viewBox="0 0 512 512"><path d="M467 61H45C20.2 61 0 81.2 0 106v300c0 24.8 20.2 45 45 45h422c24.8 0 45-20.2 45-45V106c0-24.8-20.2-45-45-45zM45 91h422c8.3 0 15 6.7 15 15v7.7L256 285 30 113.7V106c0-8.3 6.7-15 15-15zm422 330H45c-8.3 0-15-6.7-15-15V144.1l211 158.3c2.7 2 5.9 3 9 3s6.3-1 9-3l211-158.3V406c0 8.3-6.7 15-15 15z"></path></svg>
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M467 61H45C20.2 61 0 81.2 0 106v300c0 24.8 20.2 45 45 45h422c24.8 0 45-20.2 45-45V106c0-24.8-20.2-45-45-45zM45 91h422c8.3 0 15 6.7 15 15v7.7L256 285 30 113.7V106c0-8.3 6.7-15 15-15zm422 330H45c-8.3 0-15-6.7-15-15V144.1l211 158.3c2.7 2 5.9 3 9 3s6.3-1 9-3l211-158.3V406c0 8.3-6.7 15-15 15z">
+              </path>
+            </svg>
             <a href="mailto:mail@vikas.cc">mail@vikas.cc</a>
           </p>
           <p>
             <!-- Location Icon -->
-            <svg viewBox="0 0 512 512"><path d="M256 0C156.748 0 76 80.748 76 180c0 33.906 9.412 66.602 27.248 95.322C143.565 374.04 237.344 512 256 512c18.703 0 112.29-137.961 152.729-236.863C426.613 246.965 436 214.356 436 180 436 80.748 355.252 0 256 0zm0 270c-49.626 0-90-40.374-90-90s40.374-90 90-90 90 40.374 90 90-40.374 90-90 90z"></path></svg>
-            San Jose, CA (San Francisco Bay Area)
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M256 0C156.748 0 76 80.748 76 180c0 33.906 9.412 66.602 27.248 95.322C143.565 374.04 237.344 512 256 512c18.703 0 112.29-137.961 152.729-236.863C426.613 246.965 436 214.356 436 180 436 80.748 355.252 0 256 0zm0 270c-49.626 0-90-40.374-90-90s40.374-90 90-90 90 40.374 90 90-40.374 90-90 90z">
+              </path>
+            </svg>
+            San Francisco
           </p>
           <p>
             <!-- LinkedIn Icon -->
-            <svg viewBox="0 0 512 512"><path d="M426.4 0H85.6C38.4 0 0 38.2 0 85.2v341.5C0 473.8 38.4 512 85.6 512h340.7c47.2 0 85.6-38.2 85.6-85.2V85.2C512 38.2 473.6 0 426.4 0zM160 416H92V200h68v216zM126 168c-22 0-40-17.9-40-40s18-40 40-40 40 17.9 40 40-18 40-40 40zm322 248h-68V305c0-26.7-9.6-45-33.7-45-18.4 0-29.3 12.4-34.1 24.3-1.8 4.3-2.3 10.2-2.3 16.1v115.7h-68V200h68v29.4c9.1-14.1 25.5-29.4 62.1-29.4 45.3 0 76 29.6 76 93.3V416z"/></svg>
+            <svg viewBox="0 0 512 512">
+              <path
+                d="M426.4 0H85.6C38.4 0 0 38.2 0 85.2v341.5C0 473.8 38.4 512 85.6 512h340.7c47.2 0 85.6-38.2 85.6-85.2V85.2C512 38.2 473.6 0 426.4 0zM160 416H92V200h68v216zM126 168c-22 0-40-17.9-40-40s18-40 40-40 40 17.9 40 40-18 40-40 40zm322 248h-68V305c0-26.7-9.6-45-33.7-45-18.4 0-29.3 12.4-34.1 24.3-1.8 4.3-2.3 10.2-2.3 16.1v115.7h-68V200h68v29.4c9.1-14.1 25.5-29.4 62.1-29.4 45.3 0 76 29.6 76 93.3V416z" />
+            </svg>
             <a href="https://linkedin.com/in/geekvikas" target="_blank">linkedin.com/in/geekvikas</a>
           </p>
           <p>
             <!-- PDF Icon -->
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z"/></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.-->
+              <path
+                d="M0 64C0 28.7 28.7 0 64 0L224 0l0 128c0 17.7 14.3 32 32 32l128 0 0 144-208 0c-35.3 0-64 28.7-64 64l0 144-48 0c-35.3 0-64-28.7-64-64L0 64zm384 64l-128 0L256 0 384 128zM176 352l32 0c30.9 0 56 25.1 56 56s-25.1 56-56 56l-16 0 0 32c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-48 0-80c0-8.8 7.2-16 16-16zm32 80c13.3 0 24-10.7 24-24s-10.7-24-24-24l-16 0 0 48 16 0zm96-80l32 0c26.5 0 48 21.5 48 48l0 64c0 26.5-21.5 48-48 48l-32 0c-8.8 0-16-7.2-16-16l0-128c0-8.8 7.2-16 16-16zm32 128c8.8 0 16-7.2 16-16l0-64c0-8.8-7.2-16-16-16l-16 0 0 96 16 0zm80-112c0-8.8 7.2-16 16-16l48 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 32 32 0c8.8 0 16 7.2 16 16s-7.2 16-16 16l-32 0 0 48c0 8.8-7.2 16-16 16s-16-7.2-16-16l0-64 0-64z" />
+            </svg>
             <a href="resume.pdf" target="_blank" download>Download PDF Version</a>
           </p>
         </div>
@@ -209,20 +276,26 @@
       <div class="summary-box">
         <h2 id="summary">Summary</h2>
         <p>
-          Seasoned software engineer with 20+ years of experience driving innovation and delivering scalable solutions at startups and enterprises like Microsoft, GoGuardian and OneSignal.
+          Seasoned software engineer with 20+ years of experience driving innovation and delivering scalable solutions
+          at startups and enterprises like Microsoft, GoGuardian and OneSignal.
         </p>
         <p>
-          Expertise in backend systems, cloud-native architectures, and AI-driven features, with a proven track record of leading teams / mentoring engineers and driving 10x improvements in engagement, performance, and scalability.
+          Expertise in backend systems, cloud-native architectures, and AI-driven features, with a proven track record
+          of leading teams / mentoring engineers and driving 10x improvements in engagement, performance, and
+          scalability.
         </p>
       </div>
 
       <!-- Skills & Expertise -->
       <div class="skills-box">
         <h2 id="skills">Skills &amp; Expertise</h2>
-        <p><strong>Expert:</strong> Go, Python (Django &amp; Flask), Node JS, Postgres, Mongo, ScyllaDB, Redis, Kafka, Kubernetes (k8s), Kustomize, Helm, Terraform, Terragrunt, and Ansible.</p>
+        <p><strong>Expert:</strong> Go, Python (Django &amp; Flask), Node JS, Postgres, Mongo, ScyllaDB, Redis, Kafka,
+          Kubernetes (k8s), Kustomize, Helm, Terraform, Terragrunt, and Ansible.</p>
         <p><strong>Intermediate:</strong> React, Angular, TypeScript, Tailwind, Chakra, Material UI, Ant Design</p>
         <p><strong>Cloud-Agnostic:</strong> Comfortable deploying to GCP, AWS, Azure, DigitalOcean, and Hetzner.</p>
-        <p><strong>Founder Experience:</strong> Singlehandedly bootstrapped &amp; incorporated a marketing startup. Complete tech stack with React/Chakra/Node frontend and Go/Kafka/Redis/Postgres backend. From concept to launch all in 4 weeks. Available at <a href="https://www.awwsm.co" target="_blank">www.awwsm.co</a></p>
+        <p><strong>Founder Experience:</strong> Singlehandedly bootstrapped &amp; incorporated a marketing startup.
+          Complete tech stack with React/Chakra/Node frontend and Go/Kafka/Redis/Postgres backend. From concept to
+          launch all in 4 weeks. Available at <a href="https://www.awwsm.co" target="_blank">www.awwsm.co</a></p>
       </div>
     </section>
 
@@ -232,12 +305,17 @@
 
       <!-- GoGuardian -->
       <div class="card">
-        <h3>GoGuardian | Engineering Manager (Technical) | Aug 2022 - Present (2.5 years)</h3>
+        <h3>GoGuardian | Engineering Manager (Technical) | Aug 2022 - Present (<script>document.write(humanizeSince(8, 2022))</script>)</h3>
         <ul>
-          <li>Led development of backend services in Golang, delivering a scalable microservices architecture that reduced latency by 30%, improved system uptime to 99.99%, and supported over 1 million users.</li>
-          <li>Integrated AI-driven features with OpenAI, Claude, and in-house models, increasing user task efficiency by 40% and enabling advanced capabilities for over 400,000 students.</li>
-          <li>Spearheaded integration of the TutorMe platform into GoGuardian’s ecosystem post-acquisition, collaborating with 10+ cross-functional teams, resulting in seamless support for 2M+ students across product lines.</li>
-          <li>Interviewed over 100 candidates, hired 20+ Sr/Staff engineers, off-boarded 5+ engineers, and mentored new recruits of Staff/Principal engineers.</li>
+          <li>Led development of backend services in Golang, delivering a scalable microservices architecture that
+            reduced latency by 30%, improved system uptime to 99.99%, and supported over 1 million users.</li>
+          <li>Integrated AI-driven features with OpenAI, Claude, and in-house models, increasing user task efficiency by
+            40% and enabling advanced capabilities for over 400,000 students.</li>
+          <li>Spearheaded integration of the TutorMe platform into GoGuardian’s ecosystem post-acquisition,
+            collaborating with 10+ cross-functional teams, resulting in seamless support for 2M+ students across product
+            lines.</li>
+          <li>Interviewed over 100 candidates, hired 20+ Sr/Staff engineers, off-boarded 5+ engineers, and mentored new
+            recruits of Staff/Principal engineers.</li>
         </ul>
       </div>
 
@@ -245,10 +323,14 @@
       <div class="card">
         <h3>OneSignal | Senior Software Engineer | Aug 2020 - Aug 2022 (2 years)</h3>
         <ul>
-          <li>Scaled a high-volume notification platform processing 10+ billion notifications daily, achieving 50% fewer deployment failures and 20% faster delivery speeds via optimized CI/CD pipelines.</li>
-          <li>Refactored ingestion systems using Rust, Kafka, and Go, reducing partner integration time from 2 weeks to 2 days while maintaining 99.99% uptime.</li>
-          <li>Designed and launched backend support for WebSDK, enabling new product features that increased user adoption by 15%.</li>
-          <li>Integrated 2-way with partners and third-party systems (Amplitude, Adobe, Segment, MixPanel) to sync over 10mm requests per day.</li>
+          <li>Scaled a high-volume notification platform processing 10+ billion notifications daily, achieving 50% fewer
+            deployment failures and 20% faster delivery speeds via optimized CI/CD pipelines.</li>
+          <li>Refactored ingestion systems using Rust, Kafka, and Go, reducing partner integration time from 2 weeks to
+            2 days while maintaining 99.99% uptime.</li>
+          <li>Designed and launched backend support for WebSDK, enabling new product features that increased user
+            adoption by 15%.</li>
+          <li>Integrated 2-way with partners and third-party systems (Amplitude, Adobe, Segment, MixPanel) to sync over
+            10mm requests per day.</li>
         </ul>
       </div>
 
@@ -256,9 +338,12 @@
       <div class="card">
         <h3>Sight Machine | Senior Software Engineer | Aug 2019 - Aug 2020 (1 year)</h3>
         <ul>
-          <li>Architected cloud orchestration platform for distributed task processing, reducing manual operations by 90% with Python/Flask and Celery.</li>
-          <li>Implemented Kubernetes operators to manage multi-cloud deployments across GCP and AWS, overseeing 100+ daily container deployments.</li>
-          <li>Achieved $250K annual cost savings by implementing intelligent auto-scaling with custom metrics and Prometheus.</li>
+          <li>Architected cloud orchestration platform for distributed task processing, reducing manual operations by
+            90% with Python/Flask and Celery.</li>
+          <li>Implemented Kubernetes operators to manage multi-cloud deployments across GCP and AWS, overseeing 100+
+            daily container deployments.</li>
+          <li>Achieved $250K annual cost savings by implementing intelligent auto-scaling with custom metrics and
+            Prometheus.</li>
         </ul>
       </div>
 
@@ -274,22 +359,29 @@
 
       <!-- Condeco -->
       <div class="card">
-        <h3>Condeco (acquired by Eptura) | Head of Engineering | Oct 2011 - Apr 2019 (7.5 years)</h3>
+        <h3>Condeco (acquired by Eptura) | Head of Engineering | Oct 2011 - Apr 2019 (7 years and 6 months)</h3>
         <ul>
-          <li>Joined as #2 engineer, growth hacker, worked on multiple green field projects, architected from scratch and scaled to 1000s of customers making millions of bookings every day.</li>
-          <li>Launched Scheduling Engine to book Room/Desk/Parking Spaces/Video Conferencing via C#/.NET Core, rearchitecting it as a multi-tenant SaaS offering on Azure Cloud.</li>
-          <li>Built high-performing teams through rigorous recruitment and mentorship, maintaining an 80% engineer retention rate.</li>
-          <li>Worked on Exchange Web Services integration to create 2-way sync between Condeco and Exchange Server meetings.</li>
+          <li>Joined as #2 engineer, growth hacker, worked on multiple green field projects, architected from scratch
+            and scaled to 1000s of customers making millions of bookings every day.</li>
+          <li>Launched Scheduling Engine to book Room/Desk/Parking Spaces/Video Conferencing via C#/.NET Core,
+            rearchitecting it as a multi-tenant SaaS offering on Azure Cloud.</li>
+          <li>Built high-performing teams through rigorous recruitment and mentorship, maintaining an 80% engineer
+            retention rate.</li>
+          <li>Worked on Exchange Web Services integration to create 2-way sync between Condeco and Exchange Server
+            meetings.</li>
         </ul>
       </div>
 
       <!-- Microsoft -->
       <div class="card">
-        <h3>Microsoft (India) | Escalation Engineer | May 2006 - Oct 2011 (5.5 years)</h3>
+        <h3>Microsoft (India) | Escalation Engineer | May 2006 - Oct 2011 (5 years and 5 months)</h3>
         <ul>
-          <li>Delivered hot-fixes, service packs, and bug fixes for both Exchange and Outlook, reducing critical issue resolution time by 40%.</li>
-          <li>Created internal tool EWS Editor (later open-sourced), streamlining troubleshooting and cutting EWS test/debug cycles by 50%.</li>
-          <li>Wrote API code samples in .NET, C#, ASP.NET, PowerShell, VBScript, JScript for <a href="https://blogs.msdn.microsoft.com/vikas/" target="_blank">Microsoft MSDN blog</a>.</li>
+          <li>Delivered hot-fixes, service packs, and bug fixes for both Exchange and Outlook, reducing critical issue
+            resolution time by 40%.</li>
+          <li>Created internal tool EWS Editor (later open-sourced), streamlining troubleshooting and cutting EWS
+            test/debug cycles by 50%.</li>
+          <li>Wrote API code samples in .NET, C#, ASP.NET, PowerShell, VBScript, JScript for <a
+              href="https://blogs.msdn.microsoft.com/vikas/" target="_blank">Microsoft MSDN blog</a>.</li>
           <li>Shipped Exchange 2007, 2010 & Outlook 2010, VSTO & other Office SDKs.</li>
         </ul>
       </div>
@@ -300,11 +392,15 @@
       <h2>Side Projects</h2>
       <div class="card">
         <h3>Awwsm.co (Dec 2024 - 4 weeks)</h3>
-        <p>Developed and launched Awwsm.co, a fully operational marketing platform and URL shortener, showcasing expertise in full-stack development and cloud deployment.</p>
+        <p>Developed and launched Awwsm.co, a fully operational marketing platform and URL shortener, showcasing
+          expertise in full-stack development and cloud deployment.</p>
         <ul>
-          <li><b>Tech:</b> Built with React and Chakra UI, ensuring a modern and responsive user interfacem powered by Go, leveraging Kafka for job queues, Redis for caching, and PostgreSQL for data storage, ensuring scalability and performance.</li>
+          <li><b>Tech:</b> Built with React and Chakra UI, ensuring a modern and responsive user interfacem powered by
+            Go, leveraging Kafka for job queues, Redis for caching, and PostgreSQL for data storage, ensuring
+            scalability and performance.</li>
           <li><b>Analytics:</b> Integrated real-time link tracking and performance metrics using custom APIs.</li>
-          <li><b>DevOps & Infrastructure:</b> Deployed employing Kubernetes, Kustomize for automated scaling and management.</li>
+          <li><b>DevOps & Infrastructure:</b> Deployed employing Kubernetes, Kustomize for automated scaling and
+            management.</li>
           <li>Completed the entire development lifecycle, from concept to production, in just <b>4 weeks</b></li>
         </ul>
       </div>
@@ -330,4 +426,5 @@
 
   </div>
 </body>
+
 </html>
